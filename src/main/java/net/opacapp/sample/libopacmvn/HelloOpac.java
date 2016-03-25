@@ -1,8 +1,7 @@
 package net.opacapp.sample.libopacmvn;
 
+import de.geeksfactory.opacclient.OpacApiFactory;
 import de.geeksfactory.opacclient.apis.OpacApi;
-import de.geeksfactory.opacclient.apis.SISIS;
-import de.geeksfactory.opacclient.networking.HttpClientFactory;
 import de.geeksfactory.opacclient.objects.DetailledItem;
 import de.geeksfactory.opacclient.objects.Library;
 import de.geeksfactory.opacclient.objects.SearchRequestResult;
@@ -28,8 +27,7 @@ public class HelloOpac {
         library = Library.fromJSON(LIBRARY_NAME, new JSONObject(LIBRARY_CONFIG));
 
         // Instantiate the appropriate API class
-        OpacApi api = new SISIS();
-        api.init(library, new HttpClientFactory("HelloOpac/1.0.0"));
+        OpacApi api = OpacApiFactory.create(library, "HelloOpac/1.0.0");
 
         System.out.println("Obtaining search fields...");
         List<SearchField> searchFields = api.getSearchFields();
