@@ -2,7 +2,7 @@ package net.opacapp.sample.libopacmvn;
 
 import de.geeksfactory.opacclient.OpacApiFactory;
 import de.geeksfactory.opacclient.apis.OpacApi;
-import de.geeksfactory.opacclient.objects.DetailledItem;
+import de.geeksfactory.opacclient.objects.DetailedItem;
 import de.geeksfactory.opacclient.objects.Library;
 import de.geeksfactory.opacclient.objects.SearchRequestResult;
 import de.geeksfactory.opacclient.searchfields.SearchField;
@@ -17,7 +17,7 @@ import java.util.List;
 public class HelloOpac {
 
     public static String LIBRARY_NAME = "Bremen";
-    public static String LIBRARY_CONFIG = "{\"account_supported\":true,\"api\":\"sisis\",\"city\":\"Bremen\",\"country\":\"Deutschland\",\"data\":{\"baseurl\":\"https://opac.stadtbibliothek-bremen.de/webOPACClient\"},\"geo\":[53.07929619999999,8.8016937],\"information\":\"http://www.stadtbibliothek-bremen.de/bibliotheken.php\",\"replacedby\":\"de.opacapp.bremen\",\"state\":\"Bremen\",\"title\":\"Stadtbibliothek\"}";
+    public static String LIBRARY_CONFIG = "{\"account_supported\":true,\"api\":\"sisis\",\"city\":\"Bremen\",\"country\":\"Deutschland\",\"data\":{\"baseurl\":\"https://opac.stabi-hb.de/webOPACClient\"},\"geo\":[53.07929619999999,8.8016937],\"information\":\"http://www.stadtbibliothek-bremen.de/bibliotheken.php\",\"replacedby\":\"de.opacapp.bremen\",\"state\":\"Bremen\",\"title\":\"Stadtbibliothek\"}";
 
     public static void main(final String[] args) throws JSONException, OpacApi.OpacErrorException, IOException {
         System.out.println("Hello OPAC!");
@@ -42,7 +42,7 @@ public class HelloOpac {
         System.out.println("First match: " + searchRequestResult.getResults().get(0).toString());
 
         System.out.println("Fetching details for the first result...");
-        DetailledItem detailledItem = api.getResult(0);
+        DetailedItem detailledItem = api.getResult(0);
         System.out.println("Got details: " + detailledItem.toString());
     }
 }
